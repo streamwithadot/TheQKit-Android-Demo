@@ -2,6 +2,8 @@ package live.stream.theqkit.demo;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,27 +17,40 @@ import live.stream.theq.theqkit.TheQKit;
 import live.stream.theq.theqkit.data.sdk.ApiError;
 import live.stream.theq.theqkit.listener.LoginResponseListener;
 
-public class RouteActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
   public static int APP_REQUEST_CODE = 99;
+
+  private Button accountKitLoginButton;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_login);
 
-    AccessToken accountKitAccessToken = AccountKit.getCurrentAccessToken();
+    accountKitLoginButton = findViewById(R.id.accountKitLogin);
+
 
     if (TheQKit.getInstance().isAuthenticated()) {
       startMainActivity();
-    } else if (accountKitAccessToken != null) {
-      loginToTheQ(accountKitAccessToken);
-    } else {
-      requestAccountKitCredentials();
+      return;
     }
+
+    accountKitLoginButton.setOnClickListener(new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        AccessToken accountKitAccessToken = AccountKit.getCurrentAccessToken();
+        if (accountKitAccessToken != null) {
+          loginToTheQ(accountKitAccessToken);
+        } else {
+          requestAccountKitCredentials();
+        }
+      }
+    });
+
   }
 
   public void startMainActivity() {
-    Intent mainActivityIntent = new Intent(this, GameListActivity.class);
+    Intent mainActivityIntent = new Intent(this, MainActivity.class);
     mainActivityIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
     startActivity(mainActivityIntent);
   }

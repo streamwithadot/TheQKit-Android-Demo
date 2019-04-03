@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GameListActivity"
+    tools:context=".MainActivity"
     >
 
   <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -33,6 +33,23 @@
       android:text="Cash Out"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toLeftOf="@id/guidelineCenterHorizontal"
+      />
+
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/guidelineCenterHorizontal"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:orientation="vertical"
+      app:layout_constraintGuide_percent=".5" />
+
+  <Button
+      android:id="@+id/logoutButton"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:text="Log Out"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintLeft_toRightOf="@id/guidelineCenterHorizontal"
       app:layout_constraintRight_toRightOf="parent"
       />
 
