@@ -159,6 +159,24 @@ To launch a game, provide a single GameResponse object provided from the list. Y
 TheQKit.getInstance().launchGameActivity(context, gameResponse);
 ```
 
+### Season Management
+
+Fetch the current season for category and leaderboard data.
+
+```kotlin
+TheQKit.getInstance().fetchSeason(new SeasonResponseListener() {
+    @Override
+    public void onSuccess(@NotNull SeasonResponse seasonResponse) {
+
+    }
+
+    @Override
+    public void onFailure(@NotNull ApiError apiError) {
+
+    }
+});
+```
+
 ### Other
 
 TheQKit defaults to using USD for currency. This can be overriden by proving a custom currency format in your strings.xml.
