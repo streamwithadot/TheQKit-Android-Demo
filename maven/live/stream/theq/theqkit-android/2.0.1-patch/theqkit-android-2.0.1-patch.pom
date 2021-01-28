@@ -2,7 +2,7 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.github.streamwithadot</groupId>
+  <groupId>live.stream.theq</groupId>
   <artifactId>theqkit-android</artifactId>
   <version>2.0.1-patch</version>
   <packaging>aar</packaging>
@@ -11,7 +11,7 @@
   <inceptionYear>2019</inceptionYear>
   <developers>
     <developer>
-      <id>streamwithadot</id>
+      <id>streamwithadot</id>g
       <name>Stream Live, Inc</name>
       <email></email>
     </developer>
